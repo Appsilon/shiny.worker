@@ -1,5 +1,8 @@
 library(future)
 library(shiny)
+library(jsonlite)
+library(httr)
+
 plan(multiprocess)
 
 ui <- fluidPage(
@@ -60,6 +63,21 @@ job_reset <- function(id) {
   job_registry[[id]] <<- NULL
 }
 
+opencpu_rnorm <- function(n = 100, mean = 50, sd = 100){
+  payload <- list(
+    n = n,
+    mean = mean,
+    sd = sd
+  )
+  payload <- toJSON(payload, auto_unbox = TRUE)
+  res <- httr::POST(
+    url = "https://cloud.opencpu.org/ocpu/library/stats/R/rnorm/json", 
+    httr::add_headers( 'Content-Type' =  "application/json"),
+    body = payload
+  )
+  result <- unlist(content(res))
+}
+
 shinyWorker <- function(id, fun, args_reactive, value_until_resolved = NULL) {
   reactive({
     
@@ -94,7 +112,7 @@ server <- function(input, output) {
   
   plotValuesPromise <- shinyWorker("plotValuesPromise", function(args) {
       Sys.sleep(5)
-      cbind(rnorm(1000), rnorm(1000))
+      cbind(opencpu_rnorm(mean = 80), opencpu_rnorm(mean = 10))
     }, 
     args_reactive = reactive({
       input$triggerButton
