@@ -1,0 +1,24 @@
+Package: shiny.router
+Type: Package
+Title: Work Delegator for Shiny Web Applications
+Version: 0.0.1
+Authors@R: c(person("Paweł", "Przytuła",
+                    email = "paweł@appsilon.com",
+                    role = c("aut")),
+            person("Dominik", "Krzemiński",
+                    email = "dominik@appsilon.com",
+                    role = c("cre")),
+             person(family = "Appsilon", role = c("cph"))
+           )
+Description: shiny.worker allows you to delegate heavy computation tasks
+    to a separate process, such that it does not freeze your Shiny app.
+Encoding: UTF-8
+LazyData: true
+License: MIT + file LICENSE
+Imports:
+    future,
+    shiny
+RoxygenNote: 6.1.0
+Suggests: 
+    testthat,
+    covr
