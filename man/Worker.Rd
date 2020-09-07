@@ -31,9 +31,15 @@ Initialize the worker's registry
 \if{html}{\out{<a id="method-run_job"></a>}}
 \if{latex}{\out{\hypertarget{method-run_job}{}}}
 \subsection{Method \code{run_job()}}{
-Add job to registry
+Add job to the registry
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Worker$run_job(id, fun, args_reactive, value_until_resolved = NULL)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Worker$run_job(
+  id,
+  fun,
+  args_reactive,
+  value_until_resolved = NULL,
+  invalidate_time = 1000
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -46,11 +52,13 @@ Add job to registry
 \item{\code{args_reactive}}{reactive arguments that trigger the job}
 
 \item{\code{value_until_resolved}}{default value returned until the job is completed}
+
+\item{\code{invalidate_time}}{wait time before invalidating reactive context (msec)}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-promise of job completion
+reactive expression with promise of job completion
 }
 }
 \if{html}{\out{<hr>}}

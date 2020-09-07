@@ -29,12 +29,13 @@ my_heavy_calculations <- function(args) {
 }
 
 # this reactive object is used to trigger the job start,
-# but also passes parameters to the function
+# but also to pass parameters to the function
 reactive_arguments <- reactive({ 
   input$start
-  list(a = 1, b = 3)
+  list(r = rnorm(1))
 })
 
+# resultPromise will be a reactive value with value returned by my_heavy_calculations
 resultPromise <- worker$run_job("job1", my_heavy_calculations, args_reactive = reactive_arguments)
 ```
 

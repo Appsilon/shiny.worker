@@ -6,7 +6,7 @@ worker <- initialize_worker()
 ui <- fluidPage(
 
   # Application title
-  titlePanel("shiny.worker poc"),
+  titlePanel("shiny.worker demo"),
 
   # Sidebar with a slider input for number of bins
   sidebarLayout(

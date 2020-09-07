@@ -8,14 +8,16 @@ Worker <- R6::R6Class("Worker",
       plan(multiprocess)
     },
     #' @description
-    #' Add job to registry
+    #' Add job to the registry
     #' @param id character with job id
     #' @param fun function to calculate
     #' @param args_reactive reactive arguments that trigger the job
     #' @param value_until_resolved default value returned until the job is completed
+    #' @param invalidate_time wait time before invalidating reactive context (msec)
     #'
-    #' @return promise of job completion
-    run_job = function(id, fun, args_reactive, value_until_resolved = NULL) {
+    #' @return reactive expression with promise of job completion
+    run_job = function(id, fun, args_reactive, value_until_resolved = NULL,
+                       invalidate_time = 1000) {
       reactive({
 
         args_prepared <- args_reactive()
@@ -29,7 +31,7 @@ Worker <- R6::R6Class("Worker",
           private$job_reset(id)
         }
 
-        if (!private$job_is_resolved(id)) invalidateLater(1000)
+        if (!private$job_is_resolved(id)) invalidateLater(invalidate_time)
 
         result
       })
