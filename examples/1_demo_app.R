@@ -1,7 +1,7 @@
-library(future)
 library(shiny)
+library(shiny.worker)
 
-plan(multiprocess)
+worker <- initialize_worker()
 
 ui <- fluidPage(
 
@@ -44,7 +44,7 @@ server <- function(input, output) {
     hist(x, breaks = bins, col = 'darkgray', border = 'white')
   })
 
-  plotValuesPromise <- shinyWorker("plotValuesPromise", function(args) {
+  plotValuesPromise <- worker$run_job("plotValuesPromise", function(args) {
       Sys.sleep(5)
       cbind(rnorm(1000), rnorm(1000))
     },
