@@ -2,3 +2,4 @@
 
 export(Worker)
 export(initialize_worker)
+import(future)

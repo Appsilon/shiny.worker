@@ -1,4 +1,5 @@
 #' Shiny Worker R6 Class
+#' @import future
 #' @export
 Worker <- R6::R6Class("Worker",
   public = list(
