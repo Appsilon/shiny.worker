@@ -37,6 +37,9 @@ reactive_arguments <- reactive({
 
 # resultPromise will be a reactive value with value returned by my_heavy_calculations
 resultPromise <- worker$run_job("job1", my_heavy_calculations, args_reactive = reactive_arguments)
+
+resultPromise()$result # contains the result of the calculations
+resultPromise()$resolved # contains flag that informs whether the job has finished or not
 ```
 
 See more examples in the `examples/` folder.

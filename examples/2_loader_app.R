@@ -3,10 +3,25 @@ library(shiny.worker)
 
 worker <- initialize_worker()
 
-ui <- fluidPage(
+loader_css <- "
+#spinner {
+display: inline-block;
+border: 3px solid #f3f3f3;
+border-top: 3px solid #3498db;
+border-radius: 50%;
+width: 40px;
+height: 40px;
+animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}"
 
+ui <- fluidPage(
+  tags$style(loader_css),
   # Application title
-  titlePanel("shiny.worker demo"),
+  titlePanel("shiny.worker demo with loader"),
 
   # Sidebar with a slider input for number of bins
   sidebarLayout(
@@ -27,7 +42,9 @@ ui <- fluidPage(
     mainPanel(
       fluidRow(
         column(6, plotOutput("distPlot")),
-        column(6, plotOutput("FuturePlot")))
+        column(6,
+               uiOutput("loader"),
+               plotOutput("FuturePlot")))
     )
   )
 )
@@ -45,21 +62,31 @@ server <- function(input, output) {
   })
 
   plotValuesPromise <- worker$run_job("plotValuesPromise", function(args) {
-      Sys.sleep(5)
-      cbind(rnorm(1000), rnorm(1000))
-    },
-    args_reactive = reactive({
-      input$triggerButton
-      print("triggered!")
-      ""
-    })
+    Sys.sleep(5)
+    cbind(rnorm(1000), rnorm(1000))
+  },
+  args_reactive = reactive({
+    input$triggerButton
+    print("triggered!")
+    ""
+  })
   )
 
+  output$loader <- renderUI({
+    task <- plotValuesPromise()
+    if (!task$resolved) {
+      div(
+        div(class = "loader-text", "Job is running..."),
+        div(id = "spinner")
+      )
+    }
+  })
+
   output$FuturePlot <- renderPlot({
-    x <- plotValuesPromise()
-    title <- if (is.null(x$result)) "Job is running..." else "There you go"
-    points <- if (is.null(x$result)) cbind(c(0), c(0)) else x$result
-    plot(points, main = title)
+    task <- plotValuesPromise()
+    if (task$resolved) {
+      plot(task$result, main = "There you go")
+    }
   })
 
 }

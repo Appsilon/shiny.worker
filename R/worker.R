@@ -34,7 +34,7 @@ Worker <- R6::R6Class("Worker",
 
         if (!private$job_is_resolved(id)) invalidateLater(invalidate_time)
 
-        result
+        list(result = result, resolved = private$job_is_resolved(id))
       })
     },
     #' @description
