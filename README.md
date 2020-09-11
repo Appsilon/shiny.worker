@@ -1,0 +1,52 @@
+<a href='https://github.com/Appsilon/shiny.worker'><img src='man/figures/hex.png' align="right" height="150" /></a>
+
+# shiny.worker
+
+`shiny.worker` allows you to delegate heavy computation tasks to a separate process,
+such that it does not freeze your Shiny app.
+
+## How to install?
+
+```r
+remotes::install_github("Appsilon/shiny.worker")
+```
+
+## How to use it?
+
+Initialise your worker at the beggining of your app.
+
+```r
+worker <- initialize_worker()
+```
+
+Then, in the server of your Shiny app define a promise that returns a reactive when your heavy job will be completed.
+
+```r
+
+my_heavy_calculations <- function(args) {
+  # ...
+  args
+}
+
+# this reactive object is used to trigger the job start,
+# but also to pass parameters to the function
+reactive_arguments <- reactive({ 
+  input$start
+  list(r = rnorm(1))
+})
+
+# resultPromise will be a reactive value with value returned by my_heavy_calculations
+resultPromise <- worker$run_job("job1", my_heavy_calculations, args_reactive = reactive_arguments)
+
+resultPromise()$result # contains the result of the calculations
+resultPromise()$resolved # contains flag that informs whether the job has finished or not
+```
+
+See more examples in the `examples/` folder.
+
+## Appsilon Data Science
+
+<img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%" />
+
+Appsilon is the **Full Service Certified RStudio Partner**. Learn more
+at: [appsilon.com](https://appsilon.com) or get in touch: [dev@appsilon.com](dev@appsilon.com).
