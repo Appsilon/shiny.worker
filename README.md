@@ -35,7 +35,7 @@ reactive_arguments <- reactive({
   list(r = rnorm(1))
 })
 
-# resultPromise will be a reactive value with value returned by my_heavy_calculations
+# resultPromise will be a reactive value with results returned by my_heavy_calculations
 resultPromise <- worker$run_job("job1", my_heavy_calculations, args_reactive = reactive_arguments)
 
 resultPromise()$result # contains the result of the calculations
