@@ -33,7 +33,6 @@ ui <- fluidPage(
   )
 )
 
-# Define server logic required to draw a histogram
 server <- function(input, output) {
   values <- reactive({
     input$triggerButton
@@ -44,13 +43,13 @@ server <- function(input, output) {
                                    generate_values,
                                    args_reactive = values)
 
-  barCache <- reactiveVal(c(0,0))
+  barCache <- reactiveVal(c(0, 0)) # cache mechanism - store values of the previous plot
 
   output$barPlot <- renderPlot({
     x <- barplotPromise()
     title <- if (is.null(x$result)) "Job is running..." else "There you go"
     if (!is.null(x$result)) {
-      barCache(x$result)
+      barCache(x$result) # cache gets updated here
     }
     bars <- barCache()
     barplot(bars, main = title)
