@@ -11,6 +11,10 @@ such that it does not freeze your Shiny app.
 remotes::install_github("Appsilon/shiny.worker")
 ```
 
+## Example
+
+See live example [here](https://demo.appsilon.ai/apps/shiny-worker/).
+
 ## How to use it?
 
 Initialise your worker at the beggining of your app.
