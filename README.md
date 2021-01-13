@@ -48,7 +48,7 @@ resultPromise()$resolved # contains flag that informs whether the job has finish
 
 See more examples in the `examples/` folder.
 
-## Appsilon Data Science
+## Appsilon
 
 <img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%" />
 
