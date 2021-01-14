@@ -6,7 +6,7 @@ Worker <- R6::R6Class("Worker",
     #' @description
     #' Initialize the worker's registry
     initialize = function() {
-      plan(multisession)
+      plan(multiprocess)
     },
     #' @description
     #' Add job to the registry
@@ -79,7 +79,9 @@ Worker <- R6::R6Class("Worker",
 #' @export
 #'
 #' @examples
-#' worker <- initialize_worker()
+#' if(interactive()){
+#'  worker <- initialize_worker()
+#' }
 initialize_worker <- function(){
   Worker$new()
 }
