@@ -1,6 +1,6 @@
 Package: shiny.worker
 Type: Package
-Title: Work Delegator for Shiny Web Applications
+Title: Delegate Jobs for Shiny Web Applications
 Version: 0.0.1
 Authors@R: c(person("Paweł", "Przytuła",
                     email = "paweł@appsilon.com",

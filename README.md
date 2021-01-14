@@ -53,4 +53,4 @@ See more examples in the `examples/` folder.
 <img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%" />
 
 Appsilon is the **Full Service Certified RStudio Partner**. Learn more
-at: [appsilon.com](https://appsilon.com) or get in touch: [dev@appsilon.com](dev@appsilon.com).
+at: [appsilon.com](https://appsilon.com) or get in touch: `dev@appsilon.com`.
