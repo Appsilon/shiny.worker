@@ -10,7 +10,7 @@ Authors@R: c(person("Paweł", "Przytuła",
                     role = c("cre")),
              person(family = "Appsilon", role = c("cph"))
            )
-Description: shiny.worker allows you to delegate heavy computation tasks
+Description: It allows you to delegate heavy computation tasks
     to a separate process, such that it does not freeze your Shiny app.
 Encoding: UTF-8
 LazyData: true
