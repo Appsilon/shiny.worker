@@ -67,7 +67,7 @@ Worker <- R6::R6Class("Worker",
       }
     },
     job_reset = function(id) {
-      private$job_registry[[id]] <<- NULL
+      private$job_registry[[id]] <- NULL
     }
   )
 )
