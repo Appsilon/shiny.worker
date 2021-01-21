@@ -13,5 +13,7 @@ shiny.worker object
 Creates new shiny.worker object
 }
 \examples{
-worker <- initialize_worker()
+if(interactive()){
+ worker <- initialize_worker()
+}
 }

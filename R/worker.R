@@ -67,7 +67,7 @@ Worker <- R6::R6Class("Worker",
       }
     },
     job_reset = function(id) {
-      private$job_registry[[id]] <<- NULL
+      private$job_registry[[id]] <- NULL
     }
   )
 )
@@ -79,7 +79,9 @@ Worker <- R6::R6Class("Worker",
 #' @export
 #'
 #' @examples
-#' worker <- initialize_worker()
+#' if(interactive()){
+#'  worker <- initialize_worker()
+#' }
 initialize_worker <- function(){
   Worker$new()
 }
