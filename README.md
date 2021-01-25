@@ -7,15 +7,23 @@ such that it does not freeze your Shiny app.
 
 ## How to install?
 
+Pick the stable version from CRAN:
+
+```r
+install.packages("shiny.worker")
+```
+
+or the latest from GitHub:
+
 ```r
 remotes::install_github("Appsilon/shiny.worker")
 ```
 
 ## Example
 
-See live example [here](https://demo.appsilon.ai/apps/shiny-worker/).
+See live example [here](https://demo.appsilon.ai/apps/shiny-worker/) or more examples with code in the `examples/` folder.
 
-## How to use it?
+### How to use it?
 
 Initialise your worker at the beggining of your app.
 
@@ -45,8 +53,6 @@ resultPromise <- worker$run_job("job1", my_heavy_calculations, args_reactive = r
 resultPromise()$result # contains the result of the calculations
 resultPromise()$resolved # contains flag that informs whether the job has finished or not
 ```
-
-See more examples in the `examples/` folder.
 
 ## Appsilon
 
