@@ -7,7 +7,8 @@ Authors@R: c(person("Paweł", "Przytuła",
                     role = c("aut")),
             person("Dominik", "Krzemiński",
                     email = "dominik@appsilon.com",
-                    role = c("cre")),
+                    role = c("ctb")),
+            person("Developers", "Appsilon", email = "dev+shinyworker@appsilon.com", role = "cre"),
              person(family = "Appsilon", role = c("cph"))
            )
 Description: It allows you to delegate heavy computation tasks
