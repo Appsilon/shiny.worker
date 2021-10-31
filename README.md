@@ -1,3 +1,5 @@
+<a href = "https://appsilon.com/careers/" target="_blank"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"/></a>
+
 <a href='https://github.com/Appsilon/shiny.worker'><img src='man/figures/hex.png' align="right" height="150" /></a>
 
 # shiny.worker
@@ -59,4 +61,4 @@ resultPromise()$resolved # contains flag that informs whether the job has finish
 <img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%" />
 
 Appsilon is the **Full Service Certified RStudio Partner**. Learn more
-at: [appsilon.com](https://appsilon.com) or get in touch: `dev@appsilon.com`.
+at: [appsilon.com](https://appsilon.com) or get in touch: `support+opensource@appsilon.com`.
