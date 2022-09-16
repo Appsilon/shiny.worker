@@ -1,0 +1,23 @@
+title: shiny.worker
+template:
+  bootstrap: 5
+  bootswatch: pulse
+  bslib:
+    pkgdown-nav-height: 100px
+
+url: https://appsilon.github.io/shiny.worker/
+
+navbar:
+  bg: primary
+  left:
+    - icon: fa-home
+      href: index.html
+      text: "Start"
+    - icon: fa-file-code-o
+      text: "Reference"
+      href: reference/index.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/Appsilon/shiny.semantic
+    - icon: fa-twitter fa-lg
+      href: https://twitter.com/Appsilon
