@@ -1,7 +1,10 @@
 #' Shiny Worker R6 Class
-#' @import future
+#' @importFrom future future
+#' @importFrom shiny reactive
+#' @importFrom shiny invalidateLater
+#' @importFrom R6 R6Class
 #' @export
-Worker <- R6::R6Class("Worker",
+Worker <- R6Class("Worker", #nolint
   public = list(
     #' @description
     #' Initialize the worker's registry
@@ -25,7 +28,7 @@ Worker <- R6::R6Class("Worker",
 
         result <- value_until_resolved
 
-        if(!private$job_is_active(id)) {
+        if (!private$job_is_active(id)) {
           private$job_schedule(id, fun, args_prepared)
         } else if (private$job_is_resolved(id)) {
           result <- private$job_value(id)
@@ -47,12 +50,12 @@ Worker <- R6::R6Class("Worker",
     job_registry = list(),
     job_schedule = function(id, fun, args) {
       private$job_registry[[id]] <- future(fun(args))
-      if (isTRUE(getOption('worker.debug.mode')))
+      if (isTRUE(getOption("worker.debug.mode")))
         print(paste("Job scheduled:", id))
     },
     job_is_resolved = function(id) {
       result <- resolved(private$job_registry[[id]])
-      if (isTRUE(getOption('worker.debug.mode')))
+      if (isTRUE(getOption("worker.debug.mode")))
         print(paste("Resolved?", result))
       result
     },
@@ -82,6 +85,6 @@ Worker <- R6::R6Class("Worker",
 #' if(interactive()){
 #'  worker <- initialize_worker()
 #' }
-initialize_worker <- function(){
+initialize_worker <- function() {
   Worker$new()
 }
