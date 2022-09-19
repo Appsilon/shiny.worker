@@ -1,8 +1,12 @@
-<a href = "https://appsilon.com/careers/" target="_blank"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"/></a>
+# shiny.worker <a href="https://appsilon.github.io/shiny.worker/"><img src="man/figures/hex.png" align="right" alt="shiny.worker logo" style="height: 140px;"></a>
 
-<a href='https://github.com/Appsilon/shiny.worker'><img src='man/figures/hex.png' align="right" height="150" /></a>
+> _Intra-session reactivity in Shiny._
 
-# shiny.worker
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/Appsilon/shiny.worker/workflows/R-CMD-check/badge.svg)](https://github.com/Appsilon/shiny.worker/actions/workflows/main.yml)
+[![cranlogs](https://cranlogs.r-pkg.org/badges/shiny.worker)](https://CRAN.R-project.org/package=shiny.worker)
+[![total](https://cranlogs.r-pkg.org/badges/grand-total/shiny.worker)](https://CRAN.R-project.org/package=shiny.worker)
+<!-- badges: end -->
 
 `shiny.worker` allows you to delegate heavy computation tasks to a separate process,
 such that it does not freeze your Shiny app.
@@ -23,7 +27,7 @@ remotes::install_github("Appsilon/shiny.worker")
 
 ## Example
 
-See live example [here](https://demo.appsilon.ai/apps/shiny-worker/) or more examples with code in the `examples/` folder.
+See live example [here](https://connect.appsilon.com/shiny-worker/) or more examples with code in the `examples/` folder.
 
 ### How to use it?
 
@@ -44,7 +48,7 @@ my_heavy_calculations <- function(args) {
 
 # this reactive object is used to trigger the job start,
 # but also to pass parameters to the function
-reactive_arguments <- reactive({ 
+reactive_arguments <- reactive({
   input$start
   list(r = rnorm(1))
 })
@@ -60,5 +64,9 @@ resultPromise()$resolved # contains flag that informs whether the job has finish
 
 <img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%" />
 
-Appsilon is the **Full Service Certified RStudio Partner**. Learn more
-at: [appsilon.com](https://appsilon.com) or get in touch: `support+opensource@appsilon.com`.
+Appsilon is a **Full Service Certified RStudio Partner**. Learn more
+at [appsilon.com](https://appsilon.com).
+
+Get in touch [opensource@appsilon.com](opensource@appsilon.com)
+
+<a href = "https://appsilon.com/careers/" target="_blank"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"/></a>
