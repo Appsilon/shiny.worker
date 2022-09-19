@@ -1,5 +1,5 @@
 #' Shiny Worker R6 Class
-#' @importFrom future future
+#' @import future
 #' @importFrom shiny reactive
 #' @importFrom shiny invalidateLater
 #' @importFrom R6 R6Class
