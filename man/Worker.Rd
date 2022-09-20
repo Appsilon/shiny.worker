@@ -11,15 +11,15 @@ Shiny Worker R6 Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Worker$new()}}
-\item \href{#method-run_job}{\code{Worker$run_job()}}
-\item \href{#method-get_job_registry}{\code{Worker$get_job_registry()}}
-\item \href{#method-clone}{\code{Worker$clone()}}
+\item \href{#method-Worker-new}{\code{Worker$new()}}
+\item \href{#method-Worker-run_job}{\code{Worker$run_job()}}
+\item \href{#method-Worker-get_job_registry}{\code{Worker$get_job_registry()}}
+\item \href{#method-Worker-clone}{\code{Worker$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Worker-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Worker-new}{}}}
 \subsection{Method \code{new()}}{
 Initialize the worker's registry
 \subsection{Usage}{
@@ -28,8 +28,8 @@ Initialize the worker's registry
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-run_job"></a>}}
-\if{latex}{\out{\hypertarget{method-run_job}{}}}
+\if{html}{\out{<a id="method-Worker-run_job"></a>}}
+\if{latex}{\out{\hypertarget{method-Worker-run_job}{}}}
 \subsection{Method \code{run_job()}}{
 Add job to the registry
 \subsection{Usage}{
@@ -62,8 +62,8 @@ reactive expression with promise of job completion
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_job_registry"></a>}}
-\if{latex}{\out{\hypertarget{method-get_job_registry}{}}}
+\if{html}{\out{<a id="method-Worker-get_job_registry"></a>}}
+\if{latex}{\out{\hypertarget{method-Worker-get_job_registry}{}}}
 \subsection{Method \code{get_job_registry()}}{
 Displays jobs registry.
 \subsection{Usage}{
@@ -72,8 +72,8 @@ Displays jobs registry.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Worker-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Worker-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

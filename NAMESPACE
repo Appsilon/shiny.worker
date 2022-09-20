@@ -3,3 +3,6 @@
 export(Worker)
 export(initialize_worker)
 import(future)
+importFrom(R6,R6Class)
+importFrom(shiny,invalidateLater)
+importFrom(shiny,reactive)
